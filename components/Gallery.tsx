@@ -150,7 +150,7 @@ const GalleryImage = memo(({
           alt={`${title} - Imagem ${index + 1}`}
           fill
           className="object-cover"
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          sizes="(max-width: 640px) 50vw, 25vw"
           loading="lazy"
           placeholder="blur"
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwAA8A/9k="
@@ -163,7 +163,7 @@ const GalleryImage = memo(({
           flex items-center justify-center
           md:bg-gradient-to-t md:from-black/70 md:via-black/20 md:to-transparent
         ">
-          <Expand className="text-white md:transform md:scale-0 md:group-hover:scale-100 md:transition-transform md:duration-200" size={24} />
+          <Expand className="text-white hidden md:block md:transform md:scale-0 md:group-hover:scale-100 md:transition-transform md:duration-200" size={24} />
         </div>
       </div>
     </div>
@@ -231,9 +231,9 @@ function Gallery() {
           </p>
         </div>
 
-        {/* Category Tabs - Horizontal scroll on mobile */}
-        <div className="overflow-x-auto pb-2 mb-6 md:mb-8">
-          <div className="flex justify-start md:justify-center gap-2 md:gap-3 min-w-max md:min-w-0 px-1">
+        {/* Category Tabs - Grid 2x2 on mobile, flex on desktop */}
+        <div className="mb-6 md:mb-8">
+          <div className="grid grid-cols-2 md:flex md:justify-center gap-2 md:gap-3">
             {(Object.keys(galleryData) as CategoryKey[]).map((key) => {
               const category = galleryData[key]
               const Icon = category.icon
@@ -244,18 +244,18 @@ function Gallery() {
                   key={key}
                   onClick={() => handleCategoryChange(key)}
                   className={`
-                    flex items-center gap-1.5 px-3 md:px-5 py-2 md:py-2.5 rounded-full font-medium
-                    transition-all duration-200 whitespace-nowrap
+                    flex items-center justify-center gap-1.5 px-2 md:px-5 py-2 md:py-2.5 rounded-lg md:rounded-full font-medium
+                    transition-all duration-200
                     ${isActive 
                       ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg' 
                       : 'bg-white text-gray-700 hover:bg-gray-100 shadow-sm'
                     }
                   `}
                 >
-                  <Icon size={16} className="md:w-5 md:h-5" />
-                  <span className="text-sm md:text-base">{category.title}</span>
+                  <Icon size={16} className="md:w-5 md:h-5 flex-shrink-0" />
+                  <span className="text-xs md:text-base">{category.title}</span>
                   <span className={`
-                    px-1.5 py-0.5 rounded-full text-xs
+                    hidden md:inline-block px-1.5 py-0.5 rounded-full text-xs
                     ${isActive ? 'bg-white/20' : 'bg-gray-200'}
                   `}>
                     {category.images.length}
@@ -291,7 +291,7 @@ function Gallery() {
                 flex items-center gap-2 px-4 md:px-6 py-2.5 md:py-3 
                 bg-gradient-to-r from-blue-600 to-purple-600 
                 text-white rounded-full font-medium text-sm md:text-base
-                shadow-lg active:scale-95 transition-transform duration-150
+                shadow-lg md:active:scale-95 md:transition-transform md:duration-150
               "
             >
               {showAll ? (

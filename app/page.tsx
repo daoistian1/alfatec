@@ -177,18 +177,18 @@ export default function HomePage() {
         <div className="absolute inset-0 aurora-gradient opacity-20"></div>
         <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-white/10 to-black/10"></div>
         
-        {/* Animated Mesh Background */}
-        <div className="absolute inset-0 mesh-gradient opacity-10"></div>
+        {/* Animated Mesh Background - Reduced opacity on mobile */}
+        <div className="absolute inset-0 mesh-gradient opacity-5 md:opacity-10"></div>
         
         {/* Floating Elements - Hidden on mobile for better performance */}
-        <div className="hidden md:block absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-purple-400 to-primary-400 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-float"></div>
-        <div className="hidden md:block absolute bottom-20 right-10 w-72 h-72 bg-gradient-to-br from-secondary-400 to-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-cyan-400 to-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '4s' }}></div>
+        <div className="hidden lg:block absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-purple-400 to-primary-400 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-float"></div>
+        <div className="hidden lg:block absolute bottom-20 right-10 w-72 h-72 bg-gradient-to-br from-secondary-400 to-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="hidden xl:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-cyan-400 to-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '4s' }}></div>
         
         <div className="relative z-10 container text-center text-white">
           <div className="max-w-4xl mx-auto">
             {/* Mobile-optimized hero content */}
-            <div className="animate-in">
+            <div className="md:animate-in">
               {/* Logo and Title - Better spacing on mobile */}
               <div className="flex flex-col items-center mb-6 md:mb-8">
                 <img
@@ -206,12 +206,12 @@ export default function HomePage() {
               </h2>
             </div>
             
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-gray-100 animate-in px-4 md:px-0" style={{ animationDelay: '0.2s' }}>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-gray-100 md:animate-in px-4 md:px-0" style={{ animationDelay: '0.2s' }}>
               Soluções especializadas em projetos elétricos e automação industrial
               com qualidade, segurança e inovação
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in px-4 md:px-0" style={{ animationDelay: '0.4s' }}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:animate-in px-4 md:px-0" style={{ animationDelay: '0.4s' }}>
               <a href="#services" className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-primary-700 rounded-full font-semibold hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 text-sm md:text-base">
                 Nossos Serviços
                 <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
@@ -226,7 +226,7 @@ export default function HomePage() {
           {/* Stats - Mobile optimized grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-12 md:mt-20 px-4 md:px-0">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center animate-in" style={{ animationDelay: `${0.6 + index * 0.1}s` }}>
+              <div key={index} className="text-center md:animate-in" style={{ animationDelay: `${0.6 + index * 0.1}s` }}>
                 <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 md:mb-2">{stat.value}</div>
                 <div className="text-xs sm:text-sm md:text-base text-gray-200">{stat.label}</div>
               </div>
@@ -244,8 +244,8 @@ export default function HomePage() {
 
       {/* About Section */}
       <section id="about" className="py-16 md:py-20 lg:py-28 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/95 to-white/98 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 holographic opacity-5"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/95 to-white/98 md:backdrop-blur-sm"></div>
+        <div className="hidden md:block absolute inset-0 holographic opacity-5"></div>
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="px-4 md:px-0">
@@ -326,8 +326,8 @@ export default function HomePage() {
 
       {/* Services Section */}
       <section id="services" className="py-16 md:py-20 lg:py-28 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-blue-50/50 to-white/95 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 mesh-gradient opacity-5"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-blue-50/50 to-white/95 md:backdrop-blur-sm"></div>
+        <div className="hidden md:block absolute inset-0 mesh-gradient opacity-5"></div>
         <div className="container relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 px-4 md:px-0">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 gradient-text">
@@ -349,7 +349,7 @@ export default function HomePage() {
                   onMouseEnter={() => setActiveService(index)}
                 >
                   <div className="relative glass-card p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col group overflow-hidden">
-                    <div className="absolute inset-0 shimmer-effect opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="hidden md:block absolute inset-0 shimmer-effect opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className={`w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br ${service.bgClass} rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6`}>
                       <ServiceIcon className="w-7 h-7 md:w-8 md:h-8 text-white" />
                     </div>
@@ -377,8 +377,8 @@ export default function HomePage() {
       {/* Differentials Section */}
       <section id="differentials" className="py-16 md:py-20 lg:py-28 relative text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-700"></div>
-        <div className="absolute inset-0 aurora-gradient opacity-10"></div>
-        <div className="absolute inset-0 mesh-gradient opacity-5"></div>
+        <div className="hidden md:block absolute inset-0 aurora-gradient opacity-10"></div>
+        <div className="hidden md:block absolute inset-0 mesh-gradient opacity-5"></div>
         <div className="container relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 px-4 md:px-0">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
@@ -423,8 +423,8 @@ export default function HomePage() {
               }
             ].map((item, index) => (
               <div key={index} className="group h-full">
-                <div className="crystal-gradient rounded-xl md:rounded-2xl p-5 md:p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105 h-full flex flex-col relative overflow-hidden">
-                  <div className="absolute inset-0 holographic opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <div className="crystal-gradient rounded-xl md:rounded-2xl p-5 md:p-6 hover:bg-white/20 transition-all duration-300 md:hover:scale-105 h-full flex flex-col relative overflow-hidden">
+                  <div className="hidden md:block absolute inset-0 holographic opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
                   <item.icon className="w-10 h-10 md:w-12 md:h-12 text-secondary-400 mb-3 md:mb-4 relative z-10" />
                   <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">{item.title}</h3>
                   <p className="text-sm md:text-base text-gray-200 flex-grow">{item.description}</p>
@@ -514,8 +514,8 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="relative bg-gray-900 text-white py-8 md:py-12 overflow-hidden">
-        <div className="absolute inset-0 mesh-gradient opacity-5"></div>
-        <div className="absolute inset-0 aurora-gradient opacity-5"></div>
+        <div className="hidden md:block absolute inset-0 mesh-gradient opacity-5"></div>
+        <div className="hidden md:block absolute inset-0 aurora-gradient opacity-5"></div>
         <div className="container relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8 px-4 md:px-0">
             <div>
