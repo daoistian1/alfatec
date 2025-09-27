@@ -1,0 +1,14 @@
+# Robots.txt for ALFATEC
+# https://alfatec.vercel.app
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /404
+
+# Sitemap
+Sitemap: https://alfatec.vercel.app/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
