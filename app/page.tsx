@@ -20,7 +20,12 @@ import {
   Target,
   TrendingUp,
   ArrowRight,
-  Star
+  Star,
+  Sun,
+  Zap,
+  Wrench,
+  Home,
+  Factory
 } from 'lucide-react'
 import ContactForm from '../components/ContactForm'
 import Gallery from '../components/Gallery'
@@ -29,7 +34,6 @@ export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeService, setActiveService] = useState(0)
-  // Removi os estados do formulário antigo, pois agora estão no ContactForm.tsx
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,10 +59,10 @@ export default function HomePage() {
       bgClass: 'from-purple-500 to-purple-700'
     },
     {
-      title: 'Iluminação Industrial',
+      title: 'Iluminação Industrial e Pública',
       icon: Lightbulb,
-      description: 'Projetos de iluminação eficientes e modernos',
-      features: ['Eficiência energética', 'Ambientes internos/externos', 'Soluções LED'],
+      description: 'Projetos de iluminação eficientes, modernos e de vias públicas',
+      features: ['Eficiência energética', 'Iluminação pública', 'Soluções LED'],
       bgClass: 'from-yellow-500 to-orange-600'
     },
     {
@@ -67,7 +71,42 @@ export default function HomePage() {
       description: 'Documentação técnica completa e detalhada',
       features: ['Diagramas unifilares', 'Esquemas técnicos', 'Projetos elétricos'],
       bgClass: 'from-green-500 to-green-700'
-    }
+    },
+    {
+      title: 'Painel Solar',
+      icon: Sun,
+      description: 'Implantação e manutenção de sistemas fotovoltaicos',
+      features: ['Energia renovável', 'Instalação completa', 'Manutenção preventiva'],
+      bgClass: 'from-amber-400 to-yellow-600'
+    },
+    {
+      title: 'Rede Aérea',
+      icon: Zap,
+      description: 'Construção, manutenção e instalação de rede aérea elétrica',
+      features: ['Alta e média tensão', 'Instalação de postes', 'Manutenção corretiva'],
+      bgClass: 'from-sky-500 to-blue-600'
+    },
+    {
+      title: 'Manutenção Industrial',
+      icon: Factory,
+      description: 'Serviços completos de manutenção elétrica industrial',
+      features: ['Preventiva e corretiva', 'Diagnóstico técnico', 'Atendimento ágil'],
+      bgClass: 'from-slate-500 to-slate-700'
+    },
+    {
+      title: 'Manutenção Residencial',
+      icon: Home,
+      description: 'Instalações e manutenção elétrica residencial com segurança',
+      features: ['Instalações novas', 'Manutenção corretiva', 'Laudos técnicos'],
+      bgClass: 'from-teal-500 to-emerald-600'
+    },
+    {
+      title: 'Eletrocalhas e Infraestrutura',
+      icon: Wrench,
+      description: 'Construção e instalação de infraestrutura elétrica completa',
+      features: ['Eletrocalhas', 'Eletrodutos', 'Cabeamento estruturado'],
+      bgClass: 'from-rose-500 to-red-600'
+    },
   ]
 
   const stats = [
@@ -101,36 +140,16 @@ export default function HomePage() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-4 lg:gap-8">
-            <a href="#home" className={`transition-colors font-medium text-sm lg:text-base ${
-              scrolled ? 'text-gray-700 hover:text-primary-600' : 'text-white hover:text-blue-200'
-            }`}>
-              Início
-            </a>
-            <a href="#about" className={`transition-colors font-medium text-sm lg:text-base ${
-              scrolled ? 'text-gray-700 hover:text-primary-600' : 'text-white hover:text-blue-200'
-            }`}>
-              Sobre
-            </a>
-            <a href="#services" className={`transition-colors font-medium text-sm lg:text-base ${
-              scrolled ? 'text-gray-700 hover:text-primary-600' : 'text-white hover:text-blue-200'
-            }`}>
-              Serviços
-            </a>
-            <a href="#gallery" className={`transition-colors font-medium text-sm lg:text-base ${
-              scrolled ? 'text-gray-700 hover:text-primary-600' : 'text-white hover:text-blue-200'
-            }`}>
-              Galeria
-            </a>
-            <a href="#differentials" className={`transition-colors font-medium text-sm lg:text-base ${
-              scrolled ? 'text-gray-700 hover:text-primary-600' : 'text-white hover:text-blue-200'
-            }`}>
-              Diferenciais
-            </a>
-            <a href="#contact" className={`transition-colors font-medium text-sm lg:text-base ${
-              scrolled ? 'text-gray-700 hover:text-primary-600' : 'text-white hover:text-blue-200'
-            }`}>
-              Contato
-            </a>
+            {['Início', 'Sobre', 'Serviços', 'Galeria', 'Diferenciais', 'Contato'].map((item, i) => {
+              const hrefs = ['#home', '#about', '#services', '#gallery', '#differentials', '#contact']
+              return (
+                <a key={item} href={hrefs[i]} className={`transition-colors font-medium text-sm lg:text-base ${
+                  scrolled ? 'text-gray-700 hover:text-primary-600' : 'text-white hover:text-blue-200'
+                }`}>
+                  {item}
+                </a>
+              )
+            })}
           </div>
 
           <button
@@ -147,24 +166,14 @@ export default function HomePage() {
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-lg">
             <div className="container py-4 space-y-3">
-              <a href="#home" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-700 hover:text-primary-600 transition-colors">
-                Início
-              </a>
-              <a href="#about" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-700 hover:text-primary-600 transition-colors">
-                Sobre
-              </a>
-              <a href="#services" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-700 hover:text-primary-600 transition-colors">
-                Serviços
-              </a>
-              <a href="#gallery" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-700 hover:text-primary-600 transition-colors">
-                Galeria
-              </a>
-              <a href="#differentials" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-700 hover:text-primary-600 transition-colors">
-                Diferenciais
-              </a>
-              <a href="#contact" onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-700 hover:text-primary-600 transition-colors">
-                Contato
-              </a>
+              {['Início', 'Sobre', 'Serviços', 'Galeria', 'Diferenciais', 'Contato'].map((item, i) => {
+                const hrefs = ['#home', '#about', '#services', '#gallery', '#differentials', '#contact']
+                return (
+                  <a key={item} href={hrefs[i]} onClick={() => setIsMenuOpen(false)} className="block py-2 text-gray-700 hover:text-primary-600 transition-colors">
+                    {item}
+                  </a>
+                )
+              })}
             </div>
           </div>
         )}
@@ -176,20 +185,15 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900"></div>
         <div className="absolute inset-0 aurora-gradient opacity-20"></div>
         <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-white/10 to-black/10"></div>
-        
-        {/* Animated Mesh Background - Reduced opacity on mobile */}
         <div className="absolute inset-0 mesh-gradient opacity-5 md:opacity-10"></div>
-        
-        {/* Floating Elements - Hidden on mobile for better performance */}
+
         <div className="hidden lg:block absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-purple-400 to-primary-400 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-float"></div>
         <div className="hidden lg:block absolute bottom-20 right-10 w-72 h-72 bg-gradient-to-br from-secondary-400 to-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-25 animate-float" style={{ animationDelay: '2s' }}></div>
         <div className="hidden xl:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-cyan-400 to-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '4s' }}></div>
-        
+
         <div className="relative z-10 container text-center text-white">
           <div className="max-w-4xl mx-auto">
-            {/* Mobile-optimized hero content */}
             <div className="md:animate-in">
-              {/* Logo and Title - Better spacing on mobile */}
               <div className="flex flex-col items-center mb-6 md:mb-8">
                 <img
                   src="/logo.png"
@@ -200,17 +204,16 @@ export default function HomePage() {
                   ALFATEC
                 </h1>
               </div>
-              
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light mb-6 md:mb-8">
                 Engenharia e Automação
               </h2>
             </div>
-            
+
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-gray-100 md:animate-in px-4 md:px-0" style={{ animationDelay: '0.2s' }}>
               Soluções especializadas em projetos elétricos e automação industrial
-              com qualidade, segurança e inovação
+              em alta, média e baixa tensão — com qualidade, segurança e inovação
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:animate-in px-4 md:px-0" style={{ animationDelay: '0.4s' }}>
               <a href="#services" className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 bg-white text-primary-700 rounded-full font-semibold hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 text-sm md:text-base">
                 Nossos Serviços
@@ -223,7 +226,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Stats - Mobile optimized grid */}
+          {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-12 md:mt-20 px-4 md:px-0">
             {stats.map((stat, index) => (
               <div key={index} className="text-center md:animate-in" style={{ animationDelay: `${0.6 + index * 0.1}s` }}>
@@ -234,7 +237,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Scroll Indicator - Smaller on mobile */}
+        {/* Scroll Indicator */}
         <div className="absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-5 h-8 md:w-6 md:h-10 border-2 border-white rounded-full flex justify-center">
             <div className="w-1 h-2 md:h-3 bg-white rounded-full mt-1.5 md:mt-2 animate-pulse"></div>
@@ -256,56 +259,56 @@ export default function HomePage() {
                 A ALFATEC Engenharia e Automação é uma empresa especializada em soluções
                 elétricas e de automação industrial, comprometida com a excelência em cada projeto.
               </p>
-              
+
               <div className="space-y-4 md:space-y-6 mb-6 md:mb-8">
+                {/* Missão */}
                 <div className="flex gap-3 md:gap-4">
                   <Target className="w-10 h-10 md:w-12 md:h-12 text-primary-600 flex-shrink-0" />
                   <div>
                     <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Nossa Missão</h3>
                     <p className="text-sm md:text-base text-gray-600">
-                      Garantir qualidade, segurança e inovação em cada projeto,
-                      superando as expectativas de nossos clientes.
+                      Oferecer serviços de referência para as empresas nos mercados em que atuamos,
+                      gerando valor de forma sustentável para nossos clientes, funcionários e as
+                      comunidades onde operamos.
                     </p>
                   </div>
                 </div>
-                
+
+                {/* Visão */}
                 <div className="flex gap-3 md:gap-4">
                   <Award className="w-10 h-10 md:w-12 md:h-12 text-primary-600 flex-shrink-0" />
                   <div>
-                    <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Nossos Valores</h3>
+                    <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Nossa Visão</h3>
                     <p className="text-sm md:text-base text-gray-600">
-                      Profissionalismo, ética e compromisso são os pilares que
-                      sustentam nossa atuação no mercado.
+                      Crescer de maneira rentável com soluções inovadoras, eficientes e sustentáveis,
+                      melhorando a qualidade de vida das pessoas e a plena satisfação dos nossos clientes.
                     </p>
                   </div>
                 </div>
-                
+
+                {/* Objetivo */}
                 <div className="flex gap-3 md:gap-4">
                   <TrendingUp className="w-10 h-10 md:w-12 md:h-12 text-primary-600 flex-shrink-0" />
                   <div>
-                    <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Nossa Expertise</h3>
+                    <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Nosso Objetivo</h3>
                     <p className="text-sm md:text-base text-gray-600">
-                      Montagem de painéis, infraestrutura elétrica, automação e
-                      iluminação com tecnologia de ponta.
+                      Realizar um trabalho de qualidade e eficiência, proporcionando segurança aos
+                      nossos clientes, preservando o meio ambiente e oferecendo sempre o melhor
+                      para ambas as partes.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div className="relative px-4 md:px-0">
               <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-400 rounded-3xl transform rotate-3"></div>
               <div className="relative glass-card rounded-3xl p-4 md:p-6 lg:p-8 shadow-2xl hover:scale-105 transition-transform duration-300">
-                <div className="grid grid-cols-2 gap-3 md:gap-4 lg:gap-6">
+                <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-6">
                   <div className="text-center p-3 md:p-4 lg:p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl md:rounded-2xl">
                     <Shield className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-blue-600 mx-auto mb-2 md:mb-3" />
                     <h4 className="font-semibold text-sm md:text-base">Segurança</h4>
                     <p className="text-xs md:text-sm text-gray-600 mt-1 md:mt-2">NR10 Certificada</p>
-                  </div>
-                  <div className="text-center p-3 md:p-4 lg:p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-xl md:rounded-2xl">
-                    <CheckCircle className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-green-600 mx-auto mb-2 md:mb-3" />
-                    <h4 className="font-semibold text-sm md:text-base">Qualidade</h4>
-                    <p className="text-xs md:text-sm text-gray-600 mt-1 md:mt-2">ISO Standards</p>
                   </div>
                   <div className="text-center p-3 md:p-4 lg:p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl md:rounded-2xl">
                     <Clock className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-purple-600 mx-auto mb-2 md:mb-3" />
@@ -315,7 +318,7 @@ export default function HomePage() {
                   <div className="text-center p-3 md:p-4 lg:p-6 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl md:rounded-2xl">
                     <Users className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-orange-600 mx-auto mb-2 md:mb-3" />
                     <h4 className="font-semibold text-sm md:text-base">Equipe</h4>
-                    <p className="text-xs md:text-sm text-gray-600 mt-1 md:mt-2">Profissionais Expert</p>
+                    <p className="text-xs md:text-sm text-gray-600 mt-1 md:mt-2">Profissionais Qualificados</p>
                   </div>
                 </div>
               </div>
@@ -339,7 +342,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 px-4 md:px-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 px-4 md:px-0">
             {services.map((service, index) => {
               const ServiceIcon = service.icon
               return (
@@ -479,7 +482,8 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-base md:text-lg mb-1">E-mail</h3>
-                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=alfatecengenhariaautomacao@gmail.com" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base text-gray-600 hover:text-primary-600 transition-colors">                    alfatecengenhariaautomacao@gmail.com
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=alfatecengenhariaautomacao@gmail.com" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base text-gray-600 hover:text-primary-600 transition-colors">
+                    alfatecengenhariaautomacao@gmail.com
                   </a>
                 </div>
               </div>
@@ -504,10 +508,8 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            
-            {/* O formulário antigo foi removido e substituído por este componente */}
-            <ContactForm />
 
+            <ContactForm />
           </div>
         </div>
       </section>
@@ -534,7 +536,8 @@ export default function HomePage() {
                 <li><a href="#" className="hover:text-white transition-colors text-sm md:text-base">Painéis Elétricos</a></li>
                 <li><a href="#" className="hover:text-white transition-colors text-sm md:text-base">Automação</a></li>
                 <li><a href="#" className="hover:text-white transition-colors text-sm md:text-base">Iluminação</a></li>
-                <li><a href="#" className="hover:text-white transition-colors text-sm md:text-base">Projetos</a></li>
+                <li><a href="#" className="hover:text-white transition-colors text-sm md:text-base">Painel Solar</a></li>
+                <li><a href="#" className="hover:text-white transition-colors text-sm md:text-base">Manutenção</a></li>
               </ul>
             </div>
 

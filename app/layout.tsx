@@ -5,6 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://alfatec.com.br'),
   title: 'ALFATEC Engineering and Automation | Electrical Solutions in Três Rios, RJ',
   description: 'ALFATEC offers specialized solutions in electrical projects and industrial automation with quality, safety and innovation. NR10 certified professionals.',
   keywords: 'electrical engineering, industrial automation, electrical panels, industrial lighting, electrical projects, NR10, Três Rios, Rio de Janeiro, ALFATEC',

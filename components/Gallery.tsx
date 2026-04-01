@@ -2,7 +2,7 @@
 
 import { useState, useCallback, memo } from 'react'
 import Image from 'next/image'
-import { X, ChevronLeft, ChevronRight, Expand, Grid3X3, Zap, Cable, Lightbulb, Plus } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight, Expand, Grid3X3, Zap, Cable, Lightbulb, Plus, MapPin } from 'lucide-react'
 
 // Gallery data structure
 const galleryData = {
@@ -118,6 +118,20 @@ const galleryData = {
       'IMG-20250927-WA0061.jpg',
       'IMG-20250927-WA0062.jpg'
     ]
+  },
+  publicLighting: {
+    title: 'Iluminação Pública',
+    icon: MapPin,
+    folder: 'iluminação publica',
+    images: [
+      '1.jpeg',
+      '2.jpeg',
+      '3.jpeg',
+      '4.jpeg',
+      '5.jpeg',
+      '6.jpeg',
+      '7.jpeg'
+    ]
   }
 }
 
@@ -231,9 +245,9 @@ function Gallery() {
           </p>
         </div>
 
-        {/* Category Tabs - Grid 2x2 on mobile, flex on desktop */}
+        {/* Category Tabs */}
         <div className="mb-6 md:mb-8">
-          <div className="grid grid-cols-2 md:flex md:justify-center gap-2 md:gap-3">
+          <div className="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-2 md:gap-3">
             {(Object.keys(galleryData) as CategoryKey[]).map((key) => {
               const category = galleryData[key]
               const Icon = category.icon
@@ -255,8 +269,8 @@ function Gallery() {
                   <Icon size={16} className="md:w-5 md:h-5 flex-shrink-0" />
                   <span className="text-xs md:text-base">{category.title}</span>
                   <span className={`
-                    hidden md:inline-block px-1.5 py-0.5 rounded-full text-xs
-                    ${isActive ? 'bg-white/20' : 'bg-gray-200'}
+                    inline-flex min-w-6 items-center justify-center px-1.5 py-0.5 rounded-full text-[10px] md:text-xs
+                    ${isActive ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}
                   `}>
                     {category.images.length}
                   </span>
