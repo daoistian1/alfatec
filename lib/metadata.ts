@@ -4,7 +4,7 @@ export const siteConfig = {
   name: 'ALFATEC Engineering and Automation',
   description: 'Specialized solutions in electrical projects and industrial automation with quality, safety and innovation in Três Rios, Rio de Janeiro.',
   url: 'https://alfatec.com.br',
-  ogImage: 'https://alfatec.com.br/og-image.jpg',
+  ogImage: 'https://alfatec.com.br/logo.png',
   keywords: [
     'electrical engineering',
     'industrial automation',

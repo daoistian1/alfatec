@@ -24,10 +24,10 @@ export const metadata: Metadata = {
     siteName: 'ALFATEC',
     images: [
       {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'ALFATEC Engineering and Automation',
+        url: '/logo.png',
+        width: 512,
+        height: 512,
+        alt: 'ALFATEC Logo',
       },
     ],
     locale: 'en_US',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     title: 'ALFATEC Engineering and Automation',
     description: 'Specialized solutions in electrical projects and industrial automation',
     creator: '@alfatec',
-    images: ['/og-image.jpg'],
+    images: ['/logo.png'],
   },
   robots: {
     index: true,
@@ -54,9 +54,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
   },
   manifest: '/manifest.json',
 }
