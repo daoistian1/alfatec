@@ -130,7 +130,13 @@ const galleryData = {
       '4.jpeg',
       '5.jpeg',
       '6.jpeg',
-      '7.jpeg'
+      '7.jpeg',
+      '8.png',
+      '9.png',
+      '10.png',
+      '11.png',
+      '12.png',
+      '13.png'
     ]
   }
 }
