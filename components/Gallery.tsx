@@ -120,7 +120,7 @@ const galleryData = {
     ]
   },
   publicLighting: {
-    title: 'Iluminação Pública',
+    title: 'Construção e Manutenção de Rede Aérea de Média Tensão',
     icon: MapPin,
     folder: 'iluminação publica',
     images: [
