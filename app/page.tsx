@@ -123,7 +123,7 @@ export default function HomePage() {
       title: 'Rede Aérea',
       icon: Zap,
       description: 'Construção, manutenção e instalação de rede aérea elétrica',
-      features: ['Alta e média tensão', 'Instalação de postes', 'Manutenção corretiva'],
+      features: ['Alta, média e baixa tensão', 'Instalação de postes', 'Manutenção corretiva'],
       bgClass: 'from-sky-500 to-blue-600',
     },
     {
@@ -347,22 +347,33 @@ export default function HomePage() {
                     </p>
                   </div>
                 </div>
+                <div className="flex gap-3 md:gap-4">
+                  <Zap className="w-10 h-10 md:w-12 md:h-12 text-primary-600 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Nossa Expertise</h3>
+                    <p className="text-sm md:text-base text-gray-600">
+                      Atuamos com painéis elétricos, automação industrial, iluminação, energia solar,
+                      rede aérea em alta, média e baixa tensão, manutenção e infraestrutura elétrica.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div className="relative px-4 md:px-0">
               <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-400 rounded-3xl transform rotate-3" />
               <div className="relative glass-card rounded-3xl p-4 md:p-6 lg:p-8 shadow-2xl hover:scale-105 transition-transform duration-300">
-                <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-6">
+                <div className="grid grid-cols-2 gap-3 md:gap-4 lg:gap-6">
                   {[
                     { icon: Shield, color: 'from-blue-50 to-blue-100', iconColor: 'text-blue-600', label: 'Segurança', sub: 'Segurança Garantida' },
+                    { icon: CheckCircle, color: 'from-green-50 to-green-100', iconColor: 'text-green-600', label: 'Qualidade' },
                     { icon: Clock, color: 'from-purple-50 to-purple-100', iconColor: 'text-purple-600', label: 'Prazo', sub: 'Entrega Pontual' },
                     { icon: Users, color: 'from-orange-50 to-orange-100', iconColor: 'text-orange-600', label: 'Equipe', sub: 'Profissionais Qualificados' },
                   ].map(({ icon: Icon, color, iconColor, label, sub }) => (
                     <div key={label} className={`text-center p-3 md:p-4 lg:p-6 bg-gradient-to-br ${color} rounded-xl md:rounded-2xl`}>
                       <Icon className={`w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 ${iconColor} mx-auto mb-2 md:mb-3`} />
                       <h4 className="font-semibold text-sm md:text-base">{label}</h4>
-                      <p className="text-xs md:text-sm text-gray-600 mt-1 md:mt-2">{sub}</p>
+                      {sub ? <p className="text-xs md:text-sm text-gray-600 mt-1 md:mt-2">{sub}</p> : null}
                     </div>
                   ))}
                 </div>
