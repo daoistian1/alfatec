@@ -355,7 +355,7 @@ export default function HomePage() {
               <div className="relative glass-card rounded-3xl p-4 md:p-6 lg:p-8 shadow-2xl hover:scale-105 transition-transform duration-300">
                 <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-6">
                   {[
-                    { icon: Shield, color: 'from-blue-50 to-blue-100', iconColor: 'text-blue-600', label: 'Segurança', sub: 'NR10 Certificada' },
+                    { icon: Shield, color: 'from-blue-50 to-blue-100', iconColor: 'text-blue-600', label: 'Segurança', sub: 'Segurança Garantida' },
                     { icon: Clock, color: 'from-purple-50 to-purple-100', iconColor: 'text-purple-600', label: 'Prazo', sub: 'Entrega Pontual' },
                     { icon: Users, color: 'from-orange-50 to-orange-100', iconColor: 'text-orange-600', label: 'Equipe', sub: 'Profissionais Qualificados' },
                   ].map(({ icon: Icon, color, iconColor, label, sub }) => (
