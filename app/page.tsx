@@ -88,7 +88,7 @@ export default function HomePage() {
       title: 'Montagem de Painéis Elétricos',
       icon: Settings,
       description: 'Painéis industriais com máxima segurança, organização e confiabilidade',
-      features: ['Alta qualidade', 'Certificação NR10', 'Organização exemplar'],
+      features: ['Qualidade garantida', 'Certificação NR10', 'Organização exemplar'],
       bgClass: 'from-blue-500 to-blue-700',
     },
     {
@@ -157,9 +157,9 @@ export default function HomePage() {
   ]
 
   const teamContacts = [
-    { name: 'Edson da Silva Brum', phone: '(24) 9 99255-1845', whatsapp: '5524999255845' },
+    { name: 'Edson da Silva Brum', phone: '(24) 99255-1845', whatsapp: '5524999255845' },
     { name: 'Gabriel Ribeiro', phone: '(11) 9 78876-1233', whatsapp: '5511978876233' },
-    { name: 'Bruno Graciano', phone: '(21) 9 99293-2655', whatsapp: '5521999293265' },
+    { name: 'Bruno Graciano', phone: '(21) 99929-3265', whatsapp: '5521999293265' },
   ]
 
   return (
@@ -260,8 +260,9 @@ export default function HomePage() {
               className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-gray-100 md:animate-in px-4 md:px-0"
               style={{ animationDelay: '0.2s' }}
             >
-              Soluções especializadas em projetos elétricos e automação industrial
-              em alta, média e baixa tensão — com qualidade, segurança e inovação
+              Soluções completas em projetos elétricos, automação industrial e refrigeração
+              atuando também na construção e manutenção de sistemas em alta, média e baixa tensão,
+              com foco em desempenho, segurança e inovação.
             </p>
 
             <div
@@ -342,7 +343,7 @@ export default function HomePage() {
                   <div>
                     <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Nosso Objetivo</h3>
                     <p className="text-sm md:text-base text-gray-600">
-                      Realizar um trabalho de qualidade e eficiência, proporcionando segurança aos
+                      Realizar um trabalho com qualidade garantida e eficiência, proporcionando segurança aos
                       nossos clientes, preservando o meio ambiente e oferecendo sempre o melhor para ambas as partes.
                     </p>
                   </div>
@@ -366,7 +367,7 @@ export default function HomePage() {
                 <div className="grid grid-cols-2 gap-3 md:gap-4 lg:gap-6">
                   {[
                     { icon: Shield, color: 'from-blue-50 to-blue-100', iconColor: 'text-blue-600', label: 'Segurança', sub: 'Segurança Garantida' },
-                    { icon: CheckCircle, color: 'from-green-50 to-green-100', iconColor: 'text-green-600', label: 'Qualidade' },
+                    { icon: CheckCircle, color: 'from-green-50 to-green-100', iconColor: 'text-green-600', label: 'Qualidade Garantida' },
                     { icon: Clock, color: 'from-purple-50 to-purple-100', iconColor: 'text-purple-600', label: 'Prazo', sub: 'Entrega Pontual' },
                     { icon: Users, color: 'from-orange-50 to-orange-100', iconColor: 'text-orange-600', label: 'Equipe', sub: 'Profissionais Qualificados' },
                   ].map(({ icon: Icon, color, iconColor, label, sub }) => (
@@ -515,19 +516,6 @@ export default function HomePage() {
                       </a>
                     </div>
                   ))}
-                </div>
-              </div>
-
-              {/* ── Main Phone ── */}
-              <div className="flex gap-3 md:gap-4">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 md:w-6 md:h-6 text-primary-600" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-base md:text-lg mb-1">Telefone Principal</h3>
-                  <a href="tel:+5521999293265" className="text-sm md:text-base text-gray-600 hover:text-primary-600 transition-colors block">
-                    (21) 99929-3265
-                  </a>
                 </div>
               </div>
 
