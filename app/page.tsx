@@ -367,7 +367,7 @@ export default function HomePage() {
                 <div className="grid grid-cols-2 gap-3 md:gap-4 lg:gap-6">
                   {[
                     { icon: Shield, color: 'from-blue-50 to-blue-100', iconColor: 'text-blue-600', label: 'Segurança', sub: 'Segurança Garantida' },
-                    { icon: CheckCircle, color: 'from-green-50 to-green-100', iconColor: 'text-green-600', label: 'Qualidade Garantida' },
+                    { icon: CheckCircle, color: 'from-green-50 to-green-100', iconColor: 'text-green-600', label: 'Qualidade', sub: 'Qualidade Garantida' },
                     { icon: Clock, color: 'from-purple-50 to-purple-100', iconColor: 'text-purple-600', label: 'Prazo', sub: 'Entrega Pontual' },
                     { icon: Users, color: 'from-orange-50 to-orange-100', iconColor: 'text-orange-600', label: 'Equipe', sub: 'Profissionais Qualificados' },
                   ].map(({ icon: Icon, color, iconColor, label, sub }) => (
